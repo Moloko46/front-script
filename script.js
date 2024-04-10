@@ -26,7 +26,7 @@ class _PaymentIQCashier {
     this.data = { ...this.data, ...data };
     const url = this.createUrl(data);
     console.log(this.data);
-    this.createIframe(id, url, data);
+    this.createIframe(id, url, this.data);
   }
   emitSuccess(data) {
     this.events.success(data);
@@ -36,9 +36,9 @@ class _PaymentIQCashier {
     const htmlBlock = document.querySelector(id);
     const iframe = document.createElement("iframe");
     iframe.setAttribute("src", url);
-    iframe.style.width = "500px";
-    iframe.style.height = data.containerHeight;
-    iframe.style.minHeight = data.containerMinHeight;
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    // iframe.style.minHeight = data.containerMinHeight;
     htmlBlock.appendChild(iframe);
   }
 
