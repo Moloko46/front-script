@@ -24,17 +24,15 @@ class _PaymentIQCashier {
   constructor(id, data, callbackfunc) {
     callbackfunc(this.api);
     this.data = { ...this.data, ...data };
-    const url = this.createUrl(data);
+    const url = this.createUrl(this.data);
     console.log(this.data);
-    setTimeout(() => {
-      this.createIframe(id, url, this.data);
-    }, 1000);
+    this.createIframe(id, url);
   }
   emitSuccess(data) {
     this.events.success(data);
   }
 
-  createIframe(id, url, data) {
+  createIframe(id, url) {
     const htmlBlock = document.querySelector(id);
     const iframe = document.createElement("iframe");
     iframe.setAttribute("src", url);
