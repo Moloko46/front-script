@@ -26,7 +26,9 @@ class _PaymentIQCashier {
     this.data = { ...this.data, ...data };
     const url = this.createUrl(data);
     console.log(this.data);
-    this.createIframe(id, url, this.data);
+    setTimeout(() => {
+      this.createIframe(id, url, this.data);
+    }, 1000);
   }
   emitSuccess(data) {
     this.events.success(data);
@@ -38,11 +40,14 @@ class _PaymentIQCashier {
     iframe.setAttribute("src", url);
     iframe.style.width = "100%";
     iframe.style.height = "100%";
+    htmlBlock.style.width = "100%";
+    htmlBlock.style.height = "100%";
     // iframe.style.minHeight = data.containerMinHeight;
     htmlBlock.appendChild(iframe);
   }
 
   createUrl(data) {
+    console.log(data, "data in creating url");
     return `${this.url}${data.sessionId}/${data.userId}/${
       data.merchantId
     }?${new URLSearchParams({ ...data }).toString()}`;
