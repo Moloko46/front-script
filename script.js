@@ -37,7 +37,7 @@ class _PaymentIQCashier {
     const iframe = document.createElement("iframe");
     iframe.setAttribute("src", url);
     iframe.style.width = "100%";
-    iframe.style.height = "100%";
+    iframe.style.height = "45rem";
     htmlBlock.style.width = "100%";
     htmlBlock.style.height = "45rem";
     // iframe.style.minHeight = data.containerMinHeight;
