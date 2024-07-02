@@ -1,6 +1,6 @@
 class _PaymentIQCashier {
   url = "https://payaggregator.com/main/waiting-session/";
-  postUrl = "https://payaggregator.com/main/set-session-to-redis/";
+  postUrl = "https://payaggregator.com/main/set-session/";
   data = {};
   events = {
     success: () => {},
