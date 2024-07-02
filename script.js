@@ -30,7 +30,6 @@ class _PaymentIQCashier {
     this.data = { ...this.data, ...data };
     const setSession = await this.postRequestToCreateSession(this.data);
     const url = this.createUrl(this.data);
-    console.log(this.data);
     this.createIframe(id, url);
   }
   emitSuccess(data) {
@@ -45,7 +44,6 @@ class _PaymentIQCashier {
     iframe.style.height = "45rem";
     htmlBlock.style.width = "100%";
     htmlBlock.style.height = "45rem";
-    // iframe.style.minHeight = data.containerMinHeight;
     htmlBlock.appendChild(iframe);
   }
 
@@ -56,16 +54,11 @@ class _PaymentIQCashier {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      //make sure to serialize your JSON body
       body: JSON.stringify(data),
-    }).then((response) => {
-      console.log(response, "response from post request");
-      //do something awesome that makes the world a better place
-    });
+    }).then((response) => {});
   }
 
   createUrl(data) {
-    console.log(data, "data in creating url");
     return `${this.url}${data.sessionId}`;
   }
 
