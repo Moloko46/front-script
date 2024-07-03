@@ -1,6 +1,6 @@
 class _PaymentIQCashier {
-  url = "https://payaggregator.com/main/waiting-session/";
-  postUrl = "https://payaggregator.com/main/set-session/";
+  url = "https://payaggregator.com/main/waiting/";
+  postUrl = "https://payaggregator.com/main/pending/";
   data = {};
   events = {
     success: () => {},
