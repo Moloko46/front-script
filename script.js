@@ -1,6 +1,6 @@
 class _PaymentIQCashier {
-  url = "https://payaggregator.com/main/waiting/";
-  postUrl = "https://payaggregator.com/main/pending/";
+  url = "https://payaggregator.com/main/waiting-session/";
+  postUrl = "https://payaggregator.com/main/set-session/";
   data = {};
   events = {
     success: () => {},
@@ -29,7 +29,6 @@ class _PaymentIQCashier {
     callbackfunc(this.api);
     this.data = { ...this.data, ...data };
     const setSession = await this.postRequestToCreateSession(this.data);
-    console.log(setSession);
     const url = this.createUrl(this.data);
     this.createIframe(id, url);
   }
