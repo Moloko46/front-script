@@ -29,6 +29,7 @@ class _PaymentIQCashier {
     callbackfunc(this.api);
     this.data = { ...this.data, ...data };
     const setSession = await this.postRequestToCreateSession(this.data);
+    console.log(setSession);
     const url = this.createUrl(this.data);
     this.createIframe(id, url);
   }
