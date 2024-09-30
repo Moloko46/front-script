@@ -28,9 +28,14 @@ class _PaymentIQCashier {
   async Init(id, data, callbackfunc) {
     callbackfunc(this.api);
     this.data = { ...this.data, ...data };
+    console.log(this.data);
     const setSession = await this.postRequestToCreateSession(this.data);
     const url = this.createUrl(this.data);
-    this.createIframe(id, url);
+    if (this.data.redirect) {
+      window.open(url, "_blank");
+    } else {
+      this.createIframe(id, url);
+    }
   }
   emitSuccess(data) {
     this.events.success(data);
