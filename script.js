@@ -4,7 +4,7 @@ class _PaymentIQCashier {
             return "https://4re.team/main/waiting/";
         }
         if (env == "test") {
-            return "https://staging.payaggregator.com/main/waiting";
+            return "https://staging.payaggregator.com/main/waiting/";
         }
     };
     postUrl = (env) => {
@@ -12,7 +12,7 @@ class _PaymentIQCashier {
             return "https://4re.team/main/pending/";
         }
         if (env == "test") {
-            return "https://staging.payaggregator.com/main/pending";
+            return "https://staging.payaggregator.com/main/pending/";
         }
     };
     data = {};
