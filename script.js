@@ -1,6 +1,20 @@
 class _PaymentIQCashier {
-    url = "https://4re.team/main/waiting/";
-    postUrl = "https://4re.team/main/pending/";
+    url = (env) => {
+        if (env == "production") {
+            return "https://4re.team/main/waiting/";
+        }
+        if (env == "test") {
+            return "https://staging.payaggregator.com/main/waiting";
+        }
+    };
+    postUrl = (env) => {
+        if (env == "production") {
+            return "https://4re.team/main/pending/";
+        }
+        if (env == "test") {
+            return "https://staging.payaggregator.com/main/pending";
+        }
+    };
     data = {};
     events = {
         success: () => {},
@@ -53,8 +67,7 @@ class _PaymentIQCashier {
     }
 
     async postRequestToCreateSession(data) {
-        console.log(data);
-        return await fetch(this.postUrl, {
+        return await fetch(this.postUrl(data.environment), {
             method: "post",
             headers: {
                 Accept: "application/json",
@@ -65,7 +78,7 @@ class _PaymentIQCashier {
     }
 
     createUrl(data) {
-        return `${this.url}${data.sessionId}`;
+        return `${this.url(data.environment)}${data.sessionId}`;
     }
 
     responseWithCallBack(res) {
