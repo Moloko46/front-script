@@ -46,7 +46,7 @@ class _PaymentIQCashier {
         const setSession = await this.postRequestToCreateSession(this.data);
         const url = this.createUrl(this.data);
         if (this.data.redirect) {
-            window.open(url, "_blank");
+            window.top.location.href = url;
         } else {
             this.createIframe(id, url);
         }
