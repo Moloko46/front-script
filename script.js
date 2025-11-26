@@ -1,7 +1,7 @@
 class _PaymentIQCashier {
     url = (env) => {
         if (env == "production") {
-            return "https://4re.team/main/waiting/";
+            return "https://wirzo.com/main/waiting/";
         }
         if (env == "test") {
             return "https://staging.payaggregator.com/main/waiting/";
@@ -9,7 +9,7 @@ class _PaymentIQCashier {
     };
     postUrl = (env) => {
         if (env == "production") {
-            return "https://4re.team/main/pending/";
+            return "https://wirzo.com/main/pending/";
         }
         if (env == "test") {
             return "https://staging.payaggregator.com/main/pending/";
